@@ -5,7 +5,19 @@
  # @LastEditors: xianghaifeng
  # @LastEditTime: 2020-04-14 17:14:11
  ###
-echo 'docker build'
-docker image build -t nuxt-temp .
-echo 'docker run'
-docker container run -p 8002:3000 -it nuxt-temp /bin/bash
+git pull
+
+#下载依赖、打包文件
+docker run --rm \
+  -v $PWD:/home \
+  -w /home \
+  node:10 sh -c "yarn && yarn build"
+
+#删除容器
+docker rm -f nuxt-temp &> /dev/null
+
+# 运行容器
+docker run -d --restart=on-failure:5 \
+    -p 3340:80 \
+    -v $PWD/dist:/usr/share/nginx/html \
+    --name nuxt-temp nginx:1.13
