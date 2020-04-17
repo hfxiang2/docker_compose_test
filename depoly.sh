@@ -11,13 +11,13 @@ git pull
 docker run --rm \
   -v $PWD:/home \
   -w /home \
-  node:10 sh -c "yarn && yarn build"
+  node:10 sh -c "yarn && yarn build:nologin"
 
 #删除容器
 docker rm -f nuxt-temp &> /dev/null
 
 # 运行容器
 docker run -d --restart=on-failure:5 \
-    -p 8002:80 \
+    -p 8087:80 \
     -v $PWD/dist:/usr/share/nginx/html \
     --name nuxt-temp nginx:1.13
