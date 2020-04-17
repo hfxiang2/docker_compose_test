@@ -18,6 +18,6 @@ docker rm -f nuxt-temp &> /dev/null
 
 # 运行容器
 docker run -d --restart=on-failure:5 \
-    -p 3340:80 \
+    -p 8002:80 \
     -v $PWD/dist:/usr/share/nginx/html \
     --name nuxt-temp nginx:1.13
