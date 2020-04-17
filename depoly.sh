@@ -5,15 +5,7 @@
  # @LastEditors: xianghaifeng
  # @LastEditTime: 2020-04-14 17:14:11
  ###
-echo Deploy Project
-echo git pull
-git pull
-echo yarn && yarn build
-yarn && yarn build:nologin
-echo stop && rm container
-docker stop vue-docker
-docker rm vue-docker
-echo docker-build
-docker build -t vue-docker .
-docker run -p 8081:80 -d vue-docker
-echo Deploy Project Finish
+echo 'docker build'
+docker image build -t nuxt-temp
+echo 'docker run'
+docker container run -p 8002:3000 -it nuxt-temp /bin/bash
