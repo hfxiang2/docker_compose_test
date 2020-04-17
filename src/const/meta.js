@@ -15,7 +15,7 @@ const meta = {
     'https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-services/logo_font.svg',
 
   // 应用名称
-  appName: 'nuxt-demo',
+  appName: 'Deepexi-Xmesh',
   copyright: '滴普科技 版权所有',
 
   // 登录页背景
