@@ -1,3 +1,5 @@
-FROM nginx:latest
-COPY ./dist/ /usr/share/nginx/html/
-#COPY ./conf.d/conf.d /etc/nginx/conf.d
+FROM node:latest
+COPY . /app
+WORKDIR /app
+RUN yarn
+EXPOSE 3000

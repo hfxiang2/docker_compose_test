@@ -1,5 +1,5 @@
 <template>
-  <el-header class="layout-header" :height="HEADER_HEIGHT">
+  <el-header :height="HEADER_HEIGHT" class="layout-header">
     <section class="layout-header-content">
       <el-row type="flex" justify="space-between">
         <!-- 应用 logo 栏 -->
